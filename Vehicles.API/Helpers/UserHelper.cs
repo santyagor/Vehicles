@@ -21,7 +21,7 @@ namespace Vehicles.API.Helpers
             _context = context;
             _signInManager = signInManager;
         }
-        public async Task<IdentityResult> AdduserAsync(User user, string password)
+        public async Task<IdentityResult> AddUserAsync(User user, string password)
         {
             return await _userManager.CreateAsync(user, password);
         }

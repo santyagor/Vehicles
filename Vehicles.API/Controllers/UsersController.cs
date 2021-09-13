@@ -123,6 +123,7 @@ namespace Vehicles.API.Controllers
             {
                 return NotFound();
             }
+            await _blobHelper.DeleteBlobAsync(user.ImageId,"users");//borra la imagen del blob azure
             await _userHelper.DeleteUserAsync(user);            
             return RedirectToAction(nameof(Index));
         }

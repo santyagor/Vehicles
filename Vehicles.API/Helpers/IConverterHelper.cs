@@ -17,5 +17,8 @@ namespace Vehicles.API.Helpers
 
         VehicleViewModel ToVehicleViewModel(Vehicle vehicle);
 
+        Task<Detail> ToDetailAsync(DetailViewModel model, bool isNew);
+        DetailViewModel ToDetailViewModel(Detail detail);
+
     }
 }

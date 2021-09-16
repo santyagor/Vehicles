@@ -86,5 +86,31 @@ namespace Vehicles.API.Helpers
                 VehiclePhotos = vehicle.VehiclePhotos
             };
         }
+
+        public async Task<Detail> ToDetailAsync(DetailViewModel model, bool isNew)
+        {
+            return new Detail
+            {
+                Id = isNew ? 0 : model.Id,
+                History = await _context.Histories.FindAsync(model.HistoryId),
+                LaborPrice = model.LaborPrice,
+                Procedure = await _context.Procedures.FindAsync(model.ProcedureId),
+                Remarks = model.Remarks,
+                SparePartsPrice = model.SparePartsPrice
+            };
+        }
+        public DetailViewModel ToDetailViewModel(Detail detail)
+        {
+            return new DetailViewModel
+            {
+                HistoryId = detail.History.Id,
+                Id = detail.Id,
+                LaborPrice = detail.LaborPrice,
+                ProcedureId = detail.Procedure.Id,
+                Procedures = _combosHelper.GetComboProcedures(),
+                Remarks = detail.Remarks,
+                SparePartsPrice = detail.SparePartsPrice
+            };
+        }
     }
 }

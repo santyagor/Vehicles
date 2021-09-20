@@ -54,7 +54,7 @@ namespace Vehicles.API.Data
                 await _userHelper.AddUserToRoleAsync(user, userType.ToString());
 
                 string token = await _userHelper.GenerateEmailConfirmationTokenAsync(user);
-                await _userHelper.ConfirmEmailAsync(user, token);
+                //await _userHelper.ConfirmEmailAsync(user, token);//esto es para que funcione la confir de emails
             }
         }
 

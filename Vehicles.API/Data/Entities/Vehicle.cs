@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text.Json.Serialization;
 
 namespace Vehicles.API.Data.Entities
 {
@@ -38,6 +39,7 @@ namespace Vehicles.API.Data.Entities
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         public string Color { get; set; }
 
+        [JsonIgnore]
         [Display(Name = "Propietario")]
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         public User User { get; set; }

@@ -49,7 +49,7 @@ namespace Vehicles.API.Models
 
         [Display(Name = "Foto")]
         public string ImageFullPath => ImageId == Guid.Empty
-            ? $"https://localhost:44314/images/noimage.png"
+            ? $"https://vehiclesapisanty.azurewebsites.net/images/noimage.png"
             : $"https://vehiclessanty.blob.core.windows.net/users/{ImageId}";
 
         [Display(Name = "Foto")]
